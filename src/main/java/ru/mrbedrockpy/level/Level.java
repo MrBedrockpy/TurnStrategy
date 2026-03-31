@@ -3,6 +3,7 @@ package ru.mrbedrockpy.level;
 import lombok.Getter;
 import lombok.Setter;
 import ru.mrbedrockpy.level.entity.CastleEntity;
+import ru.mrbedrockpy.level.entity.Entity;
 import ru.mrbedrockpy.level.generator.ILevelGenerator;
 import ru.mrbedrockpy.util.math.Vec2i;
 
@@ -15,6 +16,7 @@ public class Level {
     private final LevelTile[][] tiles;
     @Getter private final int size;
     @Getter @Setter private CastleEntity castle;
+    @Getter @Setter private LevelTile selectedTile = null;
 
     public Level(int size, ILevelGenerator generator) {
         this.tiles = new LevelTile[size][size];

@@ -20,5 +20,6 @@ public class Textures {
     public static final Texture CASTLE_ENTITY = TextureUtil.load(new Resource("textures/entities/castle.png"));
     public static final Texture FOREST_ENTITY = TextureUtil.load(new Resource("textures/entities/forest.png"));
     public static final Texture RIOT_ENTITY = TextureUtil.load(new Resource("textures/entities/riot.png"));
+    public static final Texture MOVEMENT_VARIANT_ENTITY = TextureUtil.load(new Resource("textures/entities/movement_variant.png"));
 
 }

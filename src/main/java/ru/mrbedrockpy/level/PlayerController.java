@@ -8,6 +8,8 @@ import ru.mrbedrockpy.level.entity.Entity;
 import ru.mrbedrockpy.render.Window;
 import ru.mrbedrockpy.util.math.Vec2i;
 
+import java.util.Objects;
+
 public class PlayerController {
 
     private boolean lastMouseDown = false;
@@ -36,6 +38,11 @@ public class PlayerController {
                     Entity e = tile.getEntity();
                     if (e != null) e.onClick();
                 }
+                if (level.getSelectedTile() != null) {
+                    if (!level.getSelectedTile().equals(tile) && level.getSelectedTile().getEntity() != null)
+                        level.getSelectedTile().getEntity().unselect();
+                }
+                level.setSelectedTile(tile);
             }
         }
         lastMouseDown = currentMouseDown;

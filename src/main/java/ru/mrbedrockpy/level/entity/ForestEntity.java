@@ -25,6 +25,11 @@ public class ForestEntity extends Entity {
     public void onStep() {}
 
     @Override
+    public void unselect() {
+
+    }
+
+    @Override
     public void onClick() {
         LevelTile tile = this.level.getTile(this.pos);
         if (!tile.isInCastle()) return;

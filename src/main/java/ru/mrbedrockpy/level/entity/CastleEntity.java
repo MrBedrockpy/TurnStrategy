@@ -2,15 +2,12 @@ package ru.mrbedrockpy.level.entity;
 
 import com.raylib.Texture;
 import lombok.Getter;
-import ru.mrbedrockpy.level.LevelTile;
 import ru.mrbedrockpy.level.Level;
 import ru.mrbedrockpy.level.TileType;
 import ru.mrbedrockpy.render.Textures;
 import ru.mrbedrockpy.util.math.Vec2i;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Stream;
 
 @Getter
 public class CastleEntity extends Entity {
@@ -36,9 +33,16 @@ public class CastleEntity extends Entity {
     @Override
     public void onClick() {
         if (this.wood < 2) return;
-        this.wood -= 2;
         this.level.getNeighbours(this.pos, t -> t.getEntity() == null && !t.getType().equals(TileType.WATER)).findFirst()
-                .ifPresent(t -> t.setEntity(new RiotEntity(this.level, t.getPos())));
+                .ifPresent(t -> {
+                    wood -= 2;
+                    t.setEntity(new RiotEntity(this.level, t.getPos(), this));
+                });
+    }
+
+    @Override
+    public void unselect() {
+
     }
 
     public void addWood(int wood) {

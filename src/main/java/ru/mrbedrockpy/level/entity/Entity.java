@@ -12,11 +12,12 @@ import ru.mrbedrockpy.util.math.Vec2i;
 @AllArgsConstructor
 public abstract class Entity {
 
-    protected Level level;
+    protected final Level level;
     protected Vec2i pos;
 
     public abstract Texture getTexture();
     public abstract void onStep();
     public abstract void onClick();
+    public abstract void unselect();
 
 }

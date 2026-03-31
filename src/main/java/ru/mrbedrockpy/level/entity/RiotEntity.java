@@ -5,10 +5,10 @@ import ru.mrbedrockpy.level.Level;
 import ru.mrbedrockpy.render.Textures;
 import ru.mrbedrockpy.util.math.Vec2i;
 
-public class RiotEntity extends Entity {
+public class RiotEntity extends Hero {
 
-    public RiotEntity(Level level, Vec2i pos) {
-        super(level, pos);
+    public RiotEntity(Level level, Vec2i pos, CastleEntity castle) {
+        super(level, pos, castle);
     }
 
     @Override
@@ -16,13 +16,4 @@ public class RiotEntity extends Entity {
         return Textures.RIOT_ENTITY;
     }
 
-    @Override
-    public void onStep() {
-
-    }
-
-    @Override
-    public void onClick() {
-
-    }
 }
