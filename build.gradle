@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.0.0-beta13'
+}
+
+group = 'ru.mrbedrockpy'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def lombok = "org.projectlombok:lombok:1.18.34"
+dependencies {
+    compileOnly "org.jetbrains:annotations:24.0.0"
+    compileOnly lombok
+    annotationProcessor lombok
+    implementation 'io.github.electronstudio:jaylib-ffm:5.5.0-2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
